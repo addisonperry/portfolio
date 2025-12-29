@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Name — Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Your Name</h1>
+      <p class="subtitle">
+        Architecture student focused on space, material, and social value.
+      </p>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Selected Work</h2>
+        <p>
+          A small collection of academic and independent projects exploring
+          architecture as a social and spatial practice.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Your Name
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
