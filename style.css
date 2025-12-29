@@ -60,3 +60,10 @@ footer {
   font-size: 0.9rem;
   color: var(--muted);
 }
+/* Prevent text selection on specific elements */
+.nocopy {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Old Edge */
+  user-select: none;         /* Standard */
+}
