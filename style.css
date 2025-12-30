@@ -118,6 +118,56 @@ section {
 .about-text p {
   margin-bottom: 1.6rem;
 }
+/* ===============================
+   Architecture Gallery
+   =============================== */
+
+.arch-gallery {
+  max-width: 1100px;   /* wider than text pages */
+  margin: 0 auto;
+  padding: 8px 0 56px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+/* One card per row */
+.arch-card {
+  width: 100%;
+}
+
+/* Image container = 2/3 width */
+.arch-figure {
+  width: 66.666%;
+  margin: 0 auto;     /* centered */
+}
+
+/* Image */
+.arch-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Caption */
+.arch-meta {
+  padding-top: 10px;
+}
+
+.arch-meta h3 {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.arch-meta p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
 
 /* Footer (links only) */
 .site-footer {
@@ -165,6 +215,16 @@ section {
     gap: 24px;
     flex-wrap: wrap;
     white-space: normal;
+  }
+  
+  /* Architecture gallery mobile */
+  .arch-gallery {
+    max-width: var(--max-width);
+    gap: 28px;
+  }
+
+  .arch-figure {
+    width: 100%;
   }
 
   .site-footer {
