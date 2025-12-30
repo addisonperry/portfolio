@@ -147,6 +147,8 @@ section {
 .arch-media {
   overflow: hidden;
   border-radius: 0;
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 /* Image */
