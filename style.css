@@ -14,8 +14,12 @@ body {
   padding: 48px 24px;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif;
+
+  /* Adobe Fonts */
+  font-family: "futura-100", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   line-height: 1.6;
 }
 
@@ -28,11 +32,22 @@ footer {
 
 h1 {
   margin-bottom: 0.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .subtitle {
   color: var(--muted);
   margin-top: 0;
+
+  /* Futura 100 Oblique */
+  font-style: italic;
 }
 
 nav {
@@ -45,6 +60,7 @@ nav a {
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 nav a:hover {
@@ -60,10 +76,11 @@ footer {
   font-size: 0.9rem;
   color: var(--muted);
 }
+
 /* Prevent text selection on specific elements */
 .nocopy {
   -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Old Edge */
-  user-select: none;         /* Standard */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Old Edge */
+  user-select: none; /* Standard */
 }
