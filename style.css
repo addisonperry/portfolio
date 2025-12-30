@@ -146,6 +146,7 @@ section {
 /* Clip only the image area */
 .arch-media {
   overflow: hidden;
+  border-radius: 0;
 }
 
 /* Image */
