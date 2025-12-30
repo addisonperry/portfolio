@@ -168,6 +168,41 @@ section {
   color: var(--muted);
 }
 
+/* ===============================
+   Architecture Slider (first row only)
+   =============================== */
+
+.arch-slider .slider-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 14px;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* Old Edge */
+}
+
+.arch-slider .slider-track::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari */
+}
+
+.arch-slider .slide {
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.arch-slider .slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 /* Footer (links only) */
 .site-footer {
   max-width: var(--max-width);
