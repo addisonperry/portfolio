@@ -101,6 +101,17 @@ section {
   margin-bottom: 48px;
 }
 
+/* About page text block (centered column) */
+.about-text {
+  max-width: 420px;   /* controls column width */
+  margin: 0 auto;     /* centers the block */
+  line-height: 1.7;
+}
+
+.about-text p {
+  margin-bottom: 1.6rem;
+}
+
 footer {
   margin-top: 96px;
   font-size: 0.9rem;
