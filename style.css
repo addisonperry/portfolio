@@ -141,6 +141,7 @@ section {
 .arch-figure {
   width: 66.666%;
   margin: 0 auto;     /* centered */
+  overflow: hidden;
 }
 
 /* Image */
