@@ -152,11 +152,11 @@ section {
 
 @media (hover: hover) and (pointer: fine) {
   .arch-figure img {
-    transition: filter 260ms ease;
+    transition: filter 300ms ease;
   }
 
   .arch-figure:hover img {
-    filter: blur(20px);
+    filter: blur(14px);
   }
 }
 
