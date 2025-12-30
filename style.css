@@ -30,6 +30,13 @@ footer {
   margin: 0 auto;
 }
 
+/* Header layout */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 h1 {
   margin-bottom: 0.25rem;
   font-weight: 400;
