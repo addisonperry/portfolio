@@ -59,14 +59,16 @@ footer {
   text-decoration: none;
 }
 
-/* Nav styling (soft) */
+/* Nav container */
 nav {
   margin: 0;
+  display: flex;
+  gap: 40px; /* SPACE BETWEEN NAV ITEMS */
   white-space: nowrap;
 }
 
+/* Nav links */
 nav a {
-  margin-left: 22px;
   text-decoration: none;
   color: var(--muted);
   font-weight: 400;
