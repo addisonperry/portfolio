@@ -146,12 +146,6 @@ section {
 /* Clip only the image area */
 .arch-media {
   overflow: hidden;
-  border-radius: 0;
-
-  /* forces hard edges in iOS Safari */
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
 }
 
 /* Image */
