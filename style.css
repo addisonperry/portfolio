@@ -161,13 +161,6 @@ section {
   font-weight: 400;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #888888;
-}
-
-.arch-meta p {
-  margin: 4px 0 0;
-  font-size: 13px;
-  color: var(--muted);
 }
 
 /* Footer (links only) */
