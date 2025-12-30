@@ -103,9 +103,11 @@ section {
 
 /* About page text block (centered column) */
 .about-text {
-  max-width: 420px;   /* controls column width */
-  margin: 0 auto;     /* centers the block */
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 0 24px;        /* pushes text away from page edges */
   line-height: 1.7;
+  font-size: 0.7rem;     /* smaller, more editorial */
 }
 
 .about-text p {
