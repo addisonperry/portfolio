@@ -43,9 +43,9 @@ footer {
 /* Make the name feel like a logo */
 .site-header h1 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   line-height: 1.1;
 }
 
