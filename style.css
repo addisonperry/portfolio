@@ -28,7 +28,6 @@ body {
 }
 
 /* Page width */
-header,
 main,
 footer {
   max-width: var(--max-width);
@@ -41,7 +40,8 @@ footer {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-bottom: 16px;
+  
+  padding: 0 16px 16px;
 }
 
 /* Make the name feel like a logo */
