@@ -141,22 +141,23 @@ section {
 .arch-figure {
   width: 66.666%;
   margin: 0 auto;     /* centered */
+}
+
+/* Clip only the image area */
+.arch-media {
   overflow: hidden;
 }
 
 /* Image */
-.arch-figure img {
+.arch-media img {
   width: 100%;
   height: auto;
   display: block;
+  transition: filter 300ms ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .arch-figure img {
-    transition: filter 300ms ease;
-  }
-
-  .arch-figure:hover img {
+  .arch-figure:hover .arch-media img {
     filter: blur(14px);
   }
 }
