@@ -137,6 +137,12 @@ section {
   width: 100%;
 }
 
+.arch-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Image container = 2/3 width */
 .arch-figure {
   width: 66.666%;
