@@ -118,6 +118,16 @@ section {
 .about-text p {
   margin-bottom: 1.6rem;
 }
+
+
+/* Project pages: make images wide */
+.project-page .arch-gallery {
+  max-width: 1200px; /* or 100%, see note below */
+}
+
+.project-page .arch-figure {
+  width: 100%;
+}
 /* ===============================
    Architecture Gallery
    =============================== */
