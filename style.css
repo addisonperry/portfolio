@@ -145,6 +145,11 @@ section {
   max-width: 420px;
 }
 
+.project-page .arch-gallery {
+  gap: 24px;
+}
+
+
 /* ===============================
    Architecture Gallery
    =============================== */
