@@ -163,7 +163,7 @@ section {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .arch-figure:hover .arch-media img {
+  body:not(.project-page) .arch-figure:hover .arch-media img {
     filter: blur(14px);
   }
 }
