@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Library Resource Center — Addison Perry</title>
 
-    <link rel="stylesheet" href="../style.css?v=3" />
+    <link rel="stylesheet" href="../style.css?v=4" />
     <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css">
   </head>
 
@@ -24,30 +24,29 @@
 
     <main>
       <section class="about-text">
-       <p>LIBRARY RESOURCE CENTER</p>
-       <p>
-        GROUP EXHIBITION<br>
-        BY NACHO POLO &amp; ROBERT ONUSKA<br>
-        APRIL 21ST – APRIL 26TH, 2026<br>
-        SANTA ANA<br>
-        CALIFORNIA
-      </p>
-    
-      <p>
-        This page is where you slow things down and let the project speak
-        beyond the image.
-      </p>
+        <p>LIBRARY RESOURCE CENTER</p>
+        <p>
+          GROUP EXHIBITION<br>
+          BY NACHO POLO &amp; ROBERT ONUSKA<br>
+          APRIL 21ST – APRIL 26TH, 2026<br>
+          SANTA ANA<br>
+          CALIFORNIA
+        </p>
+        <p>
+          This page is where you slow things down and let the project speak
+          beyond the image.
+        </p>
       </section>
 
       <section class="arch-gallery">
-       <article class="arch-card">
+        <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
               <img src="../images/architecture/IMG_1610.jpg" alt="">
             </div>
           </figure>
         </article>
-        
+
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
@@ -63,7 +62,7 @@
             </div>
           </figure>
         </article>
-        
+
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
@@ -71,7 +70,7 @@
             </div>
           </figure>
         </article>
-        
+
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
@@ -79,7 +78,7 @@
             </div>
           </figure>
         </article>
-        
+
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
@@ -87,7 +86,7 @@
             </div>
           </figure>
         </article>
-        
+
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
@@ -112,5 +111,40 @@
       </a>
       <a href="mailto:studio@addisonoperry.com">Email</a>
     </footer>
+
+    <!-- Scroll reveal script -->
+    <script>
+      (function () {
+        const cards = document.querySelectorAll(".arch-card");
+        if (!cards.length) return;
+
+        // subtle stagger
+        cards.forEach((card, i) => {
+          card.style.setProperty("--reveal-delay", `${i * 60}ms`);
+        });
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        if (reduceMotion.matches) {
+          cards.forEach(card => card.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach(entry => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.15,
+            rootMargin: "0px 0px -10% 0px"
+          }
+        );
+
+        cards.forEach(card => observer.observe(card));
+      })();
+    </script>
   </body>
 </html>
