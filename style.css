@@ -1,4 +1,3 @@
-/* UPDATED CSS (subtle scroll reveal included) */
 :root {
   --bg: #ffffff;
   --text: #111111;
@@ -168,12 +167,11 @@ section {
   width: 100%;
 }
 
-/* Scroll reveal (subtle) */
+/* Fast + subtle scroll reveal */
 .arch-card {
   opacity: 0;
-  transform: translateY(8px); /* subtle movement */
-  transition: opacity 900ms ease-out, transform 900ms ease-out;
-  transition-delay: var(--reveal-delay, 0ms);
+  transform: translateY(4px);
+  transition: opacity 420ms ease-out, transform 420ms ease-out;
   will-change: opacity, transform;
 }
 
