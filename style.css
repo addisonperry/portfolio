@@ -63,7 +63,7 @@ footer {
 nav {
   margin: 0;
   display: flex;
-  gap: 48px; /* SPACE BETWEEN NAV ITEMS */
+  gap: 40px; /* SPACE BETWEEN NAV ITEMS */
   white-space: nowrap;
 }
 
