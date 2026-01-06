@@ -10,22 +10,18 @@
 }
 
 body {
-  min-height: 100vh; /* enables sticky footer */
+  min-height: 100vh;
   margin: 0;
-  padding: 48px 24px;
+  padding: 24px 24px 48px; /* top | sides | bottom */
   background: var(--bg);
   color: var(--text);
-
-  display: flex; /* enables sticky footer */
+  display: flex;
   flex-direction: column;
-
-  /* Adobe Fonts */
   font-family: acumin-pro, sans-serif;
   font-weight: 400;
-  font-style: normal;
-
   line-height: 1.6;
 }
+
 
 /* Page width */
 main,
