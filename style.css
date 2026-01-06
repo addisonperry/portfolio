@@ -70,14 +70,14 @@ nav {
 /* Nav links */
 nav a {
   text-decoration: none;
-  color: #888888;
+  color: var(--text);
   font-weight: 300;
   font-size: 1rem;
   letter-spacing: 0em;
 }
 
 nav a:hover {
-  color: var(--text);
+  color: #888888;
 }
 
 /* Content spacing */
