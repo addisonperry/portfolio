@@ -1,3 +1,4 @@
+<!-- UPDATED HTML (subtle scroll reveal included) -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Library Resource Center — Addison Perry</title>
 
-    <link rel="stylesheet" href="../style.css?v=4" />
-    <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css">
+    <link rel="stylesheet" href="../style.css?v=5" />
+    <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css" />
   </head>
 
   <body class="project-page">
@@ -26,12 +27,13 @@
       <section class="about-text">
         <p>LIBRARY RESOURCE CENTER</p>
         <p>
-          GROUP EXHIBITION<br>
-          BY NACHO POLO &amp; ROBERT ONUSKA<br>
-          APRIL 21ST – APRIL 26TH, 2026<br>
-          SANTA ANA<br>
+          GROUP EXHIBITION<br />
+          BY NACHO POLO &amp; ROBERT ONUSKA<br />
+          APRIL 21ST – APRIL 26TH, 2026<br />
+          SANTA ANA<br />
           CALIFORNIA
         </p>
+
         <p>
           This page is where you slow things down and let the project speak
           beyond the image.
@@ -42,7 +44,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/IMG_1610.jpg" alt="">
+              <img src="../images/architecture/IMG_1610.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -50,7 +52,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_16.jpg" alt="">
+              <img src="../images/architecture/Binder1_Page_16.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -58,7 +60,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_06.jpg" alt="">
+              <img src="../images/architecture/Binder1_Page_06.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -66,7 +68,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_08.jpg" alt="">
+              <img src="../images/architecture/Binder1_Page_08.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -74,7 +76,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_20.jpg" alt="">
+              <img src="../images/architecture/Binder1_Page_20.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -82,7 +84,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_18.jpg" alt="">
+              <img src="../images/architecture/Binder1_Page_18.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -90,7 +92,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_19.jpg" alt="">
+              <img src="../images/architecture/Binder1_Page_19.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -98,7 +100,7 @@
         <article class="arch-card">
           <figure class="arch-figure">
             <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_12.jpg" alt="">
+              <img src="../images/architecture/Binder1_Page_12.jpg" alt="" />
             </div>
           </figure>
         </article>
@@ -106,32 +108,36 @@
     </main>
 
     <footer class="site-footer">
-      <a href="https://instagram.com/addisonoperry" target="_blank" rel="noopener">
+      <a
+        href="https://instagram.com/addisonoperry"
+        target="_blank"
+        rel="noopener"
+      >
         Instagram
       </a>
       <a href="mailto:studio@addisonoperry.com">Email</a>
     </footer>
 
-    <!-- Scroll reveal script -->
+    <!-- Subtle scroll reveal -->
     <script>
       (function () {
         const cards = document.querySelectorAll(".arch-card");
         if (!cards.length) return;
 
-        // subtle stagger
+        // very subtle stagger
         cards.forEach((card, i) => {
-          card.style.setProperty("--reveal-delay", `${i * 60}ms`);
+          card.style.setProperty("--reveal-delay", `${i * 30}ms`);
         });
 
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
         if (reduceMotion.matches) {
-          cards.forEach(card => card.classList.add("is-visible"));
+          cards.forEach((card) => card.classList.add("is-visible"));
           return;
         }
 
         const observer = new IntersectionObserver(
           (entries, obs) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
               entry.target.classList.add("is-visible");
               obs.unobserve(entry.target);
@@ -139,11 +145,11 @@
           },
           {
             threshold: 0.15,
-            rootMargin: "0px 0px -10% 0px"
+            rootMargin: "0px 0px -10% 0px",
           }
         );
 
-        cards.forEach(card => observer.observe(card));
+        cards.forEach((card) => observer.observe(card));
       })();
     </script>
   </body>
