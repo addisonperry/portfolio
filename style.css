@@ -10,72 +10,55 @@
 }
 
 body {
-  min-height: 100vh;            /* enables sticky footer */
+  min-height: 100vh;
   margin: 0;
   padding: 48px 24px;
   background: var(--bg);
   color: var(--text);
 
-  display: flex;                /* enables sticky footer */
+  display: flex;
   flex-direction: column;
 
-  /* Adobe Fonts */
   font-family: "futura-100", sans-serif;
   font-weight: 400;
   font-style: normal;
-
   line-height: 1.6;
 }
 
-/* Page width */
 main,
 footer {
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
-/* Header layout: logo left, nav right */
+/* Header */
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  
   padding: 0 60px 36px 36px;
 }
 
-/* Make the name feel like a logo */
 .site-header h1 {
   margin: 0;
   font-size: 1rem;
-  font-weight: 400;
   letter-spacing: 0.05em;
-  line-height: 1.1;
 }
 
-/* Clickable logo */
 .site-header h1 a {
   color: var(--text);
   text-decoration: none;
 }
 
-.site-header h1 a:hover {
-  text-decoration: none;
-}
-
-/* Nav container */
 nav {
-  margin: 0;
   display: flex;
-  gap: 48px; /* SPACE BETWEEN NAV ITEMS */
-  white-space: nowrap;
+  gap: 48px;
 }
 
-/* Nav links */
 nav a {
   text-decoration: none;
-  color: #888888;
-  font-weight: 400;
+  color: #888;
   font-size: 0.7rem;
   letter-spacing: 0.03em;
 }
@@ -84,78 +67,33 @@ nav a:hover {
   color: var(--text);
 }
 
-/* Content spacing */
+/* Content */
 main {
-  flex: 1;          /* pushes footer to bottom */
+  flex: 1;
   margin-top: 32px;
-}
-
-h2 {
-  margin: 0 0 12px 0;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-.subtitle {
-  color: var(--muted);
-  margin: 8px 0 0 0;
-  font-style: italic;
 }
 
 section {
   margin-bottom: 48px;
 }
 
-/* About page text block (centered column) */
+/* About text */
 .about-text {
-  max-width: 420px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px; /* pushes text away from page edges */
-  line-height: 1.7;
-  font-size: 0.7rem; /* smaller, more editorial */
-}
-
-.about-text p {
-  margin-bottom: 1.6rem;
-}
-
-
-/* Project pages: make images wide */
-.project-page .arch-gallery {
-  max-width: 1200px; /* or 100%, see note below */
-}
-
-.project-page .arch-figure {
-  width: 100%;
-}
-
-/* Project pages: align text with image */
-.project-page .about-text {
-  max-width: 1100px; /* same as .arch-gallery */
-  margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.project-page .about-text {
   text-align: left;
 }
 
-.project-page .about-text p {
+.about-text p {
   max-width: 420px;
+  font-size: 0.7rem;
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
 }
 
-.project-page .arch-gallery {
-  gap: 20px;
-}
-
-
-/* ===============================
-   Architecture Gallery
-   =============================== */
-
+/* Architecture gallery */
 .arch-gallery {
-  max-width: 1100px;   /* wider than text pages */
+  max-width: 1100px;
   margin: 0 auto;
   padding: 8px 0 56px;
 
@@ -164,56 +102,49 @@ section {
   gap: 44px;
 }
 
-/* One card per row */
 .arch-card {
   width: 100%;
+
+  /* scroll reveal base state */
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
-.arch-link {
-  display: block;
-  color: inherit;
-  text-decoration: none;
+.arch-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Image container = 2/3 width */
 .arch-figure {
   width: 66.666%;
-  margin: 0 auto;     /* centered */
+  margin: 0 auto;
 }
 
-/* Clip only the image area */
 .arch-media {
   overflow: hidden;
 }
 
-/* Image */
 .arch-media img {
   width: 100%;
   height: auto;
   display: block;
-  transition: filter 300ms ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body:not(.project-page) .arch-figure:hover .arch-media img {
-    filter: blur(14px);
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .arch-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
-/* Caption */
-.arch-meta {
-  padding-top: 10px;
-}
-
-.arch-meta h3 {
-  margin: 0;
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-/* Footer (links only) */
+/* Footer */
 .site-footer {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -221,13 +152,12 @@ section {
 
   display: flex;
   gap: 32px;
-
   font-size: 0.75rem;
 }
 
 .site-footer a {
   text-decoration: none;
-  color: #888888;
+  color: #888;
   letter-spacing: 0.06em;
 }
 
@@ -235,15 +165,11 @@ section {
   color: var(--text);
 }
 
-/* Prevent text selection on specific elements */
 .nocopy {
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Old Edge */
-  user-select: none; /* Standard */
+  user-select: none;
 }
 
-/* Mobile: stack logo and nav cleanly */
+/* Mobile */
 @media (max-width: 640px) {
   body {
     padding: 32px 18px;
@@ -258,17 +184,14 @@ section {
   nav {
     gap: 24px;
     flex-wrap: wrap;
-    white-space: normal;
-  }
-  
-  /* Architecture gallery mobile */
-  .arch-gallery {
-    max-width: var(--max-width);
-    gap: 28px;
   }
 
   .arch-figure {
     width: 100%;
+  }
+
+  .arch-gallery {
+    gap: 28px;
   }
 
   .site-footer {
