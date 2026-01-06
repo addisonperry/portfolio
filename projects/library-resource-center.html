@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Library Resource Center — Addison Perry</title>
 
-    <link rel="stylesheet" href="../style.css?v=7" />
+    <link rel="stylesheet" href="../style.css?v=6" />
     <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css" />
   </head>
 
@@ -134,12 +134,12 @@
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
               entry.target.classList.add("is-visible");
-              obs.unobserve(entry.target);
+              obs.unobserve(entry.target); // animate once
             });
           },
           {
-            threshold: 0,
-            rootMargin: "0px 0px -18% 0px",
+            threshold: 0,                  // trigger as soon as it enters
+            rootMargin: "0px 0px -18% 0px"  // feels quicker
           }
         );
 
