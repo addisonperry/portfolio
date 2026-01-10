@@ -1,4 +1,4 @@
-/* style.css (FULL UPDATED — right-cap aligns intro + images) */
+/* style.css (FULL UPDATED — catalog-style numbered scales + near-flush right edge) */
 :root {
   --bg: #ffffff;
   --text: #111111;
@@ -229,7 +229,7 @@ section {
 }
 
 .project-page .project-sidebar h4 {
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -241,12 +241,58 @@ section {
   margin: 0 0 14px 0;
 }
 
+/* Catalog-style numbered caption list */
+.caption-list {
+  list-style: none;
+  margin: 18px 0 0 0;
+  padding: 0;
+}
+
+.caption-item {
+  display: grid;
+  grid-template-columns: 34px 1fr; /* number col | text col */
+  column-gap: 14px;
+  align-items: baseline;
+  padding: 10px 0;
+}
+
+.caption-num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.caption-body {
+  display: block;
+}
+
+.caption-title,
+.caption-scale {
+  display: block;
+  line-height: 1.55;
+}
+
+.caption-title {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.caption-scale {
+  color: var(--muted);
+}
+
+/* Optional: subtle separators like printed lists */
+.caption-item + .caption-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
 /* Right column */
 .project-page .project-content {
   width: 100%;
 }
 
-/* THIS is the shared cap that aligns intro + images */
+/* Shared cap that aligns intro + images */
 .project-page .right-cap {
   width: min(var(--right-col-max), 100%);
   margin-left: auto; /* pins right edge */
