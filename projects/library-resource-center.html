@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css" />
   </head>
 
-  <body class="project-page">
+  <body class="project-page reveal-on">
     <header class="nocopy site-header">
       <h1>
         <a href="../index.html">ADDISON PERRY</a>
@@ -123,16 +123,28 @@
         Instagram
       </a>
       <a href="mailto:studio@addisonoperry.com">Email</a>
+      <span class="site-footer-year">© <span id="year"></span></span>
     </footer>
 
-    <!-- Fast + subtle scroll reveal -->
     <script>
+      // Safe year setter
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Fast + subtle scroll reveal (only meaningful because this page has .reveal-on)
       (function () {
         const cards = document.querySelectorAll(".arch-card");
         if (!cards.length) return;
 
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        );
         if (reduceMotion.matches) {
+          cards.forEach((card) => card.classList.add("is-visible"));
+          return;
+        }
+
+        if (!("IntersectionObserver" in window)) {
           cards.forEach((card) => card.classList.add("is-visible"));
           return;
         }
@@ -142,12 +154,12 @@
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
               entry.target.classList.add("is-visible");
-              obs.unobserve(entry.target); // animate once
+              obs.unobserve(entry.target);
             });
           },
           {
-            threshold: 0,                  // trigger as soon as it enters
-            rootMargin: "0px 0px -18% 0px"  // feels quicker
+            threshold: 0,
+            rootMargin: "0px 0px -18% 0px",
           }
         );
 
