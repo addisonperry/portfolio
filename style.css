@@ -1,9 +1,19 @@
-/* style.css (FULL UPDATED — project images pinned right with adjustable left edge) */
+/* style.css (FULL UPDATED — true fixed left sidebar + scrolling right column) */
 :root {
   --bg: #ffffff;
   --text: #111111;
   --muted: #666666;
   --max-width: 720px;
+
+  /* layout tuning */
+  --sidebar-width: 360px;
+  --gap: 40px;
+
+  /* sticky offset (accounts for top padding + header height) */
+  --sticky-top: 88px;
+
+  /* controls the LEFT edge of the right-column images while keeping right edge pinned */
+  --right-col-max: 980px;
 }
 
 * {
@@ -18,7 +28,7 @@ body {
 body {
   min-height: 100vh;
   margin: 0;
-  padding: 24px 24px 48px; /* top | sides | bottom */
+  padding: 24px 24px 48px;
   background: var(--bg);
   color: var(--text);
 
@@ -35,12 +45,11 @@ body {
    PAGE LAYOUT
    =============================== */
 
-/* MAIN: full width so project galleries can expand */
 main {
   width: 100%;
   max-width: none;
   margin: 0;
-  flex: 1; /* pushes footer down */
+  flex: 1;
   margin-top: 32px;
 }
 
@@ -123,38 +132,18 @@ nav a:hover {
   color: #888888;
 }
 
-nav a[aria-current="page"] {
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-}
-
 /* ===============================
-   CONTENT BASE
+   TYPOGRAPHY BASE
    =============================== */
 
 section {
   margin-bottom: 48px;
 }
 
-h2 {
-  margin: 0 0 12px 0;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-.subtitle {
-  color: var(--muted);
-  margin: 8px 0 0 0;
-  font-style: italic;
-}
-
-/* About text (general) */
 .about-text {
   max-width: 420px;
-  margin: 0 auto;
-  padding: 0 24px;
+  margin: 0;
+  padding: 0;
   line-height: 1.7;
   font-size: 0.7rem;
 }
@@ -181,13 +170,6 @@ h2 {
   width: 100%;
 }
 
-.arch-link {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Default figure width (index page) */
 .arch-figure {
   width: 66.666%;
   margin: 0 auto;
@@ -210,49 +192,46 @@ h2 {
   }
 }
 
-/* Caption (index page) */
-.arch-meta {
-  padding-top: 10px;
-}
-
-.arch-meta h3 {
-  margin: 0;
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
 /* ===============================
-   PROJECT PAGES (WIDE + RIGHT-PINNED IMAGES)
+   PROJECT PAGES — FIXED LEFT SIDEBAR
    =============================== */
 
-/* Project gallery: near full-bleed with small side padding */
-.project-page .arch-gallery {
-  max-width: none;
+/* Full-bleed project layout with small page padding */
+.project-page .project-layout {
   width: 100%;
+  max-width: none;
   margin: 0;
-  padding: 8px 24px 56px; /* page-side padding */
-  gap: 20px;
-}
+  padding: 8px 24px 56px;
 
-/* Two-column rows: stable notes column + flexible right column */
-.project-page .arch-card {
   display: grid;
-  grid-template-columns: 360px 1fr; /* left notes | right column */
-  gap: 40px;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  gap: var(--gap);
   align-items: start;
 }
 
-/* LEFT: notes column */
-.project-page .arch-text {
+/* Left column: fixed (sticky) regardless of rows */
+.project-page .project-sidebar {
+  position: sticky;
+  top: var(--sticky-top);
+  align-self: start;
+
+  /* keeps the sidebar from getting too wide */
+  width: var(--sidebar-width);
+
   font-size: 0.7rem;
-  line-height: 1.6;
   color: var(--muted);
+  line-height: 1.6;
 }
 
-.project-page .arch-text h4 {
-  margin: 0 0 8px 0;
+/* Optional: if your sidebar content gets long, it can scroll internally */
+.project-page .project-sidebar-inner {
+  max-height: calc(100vh - var(--sticky-top) - 24px);
+  overflow: auto;
+  padding-right: 8px;
+}
+
+.project-page .project-sidebar h4 {
+  margin: 0 0 10px 0;
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -260,28 +239,37 @@ h2 {
   color: var(--text);
 }
 
-.project-page .arch-text p {
-  margin: 0;
+.project-page .project-sidebar p {
+  margin: 0 0 14px 0;
 }
 
-/* RIGHT: pin to the right edge and CAP WIDTH
-   Change 980px to control the left edge position */
-.project-page .arch-card > :nth-child(2) {
-  justify-self: end;           /* pins to right edge */
-  width: min(980px, 100%);     /* <-- adjust this number */
+/* Right column: scrolls naturally with the page */
+.project-page .project-content {
+  width: 100%;
 }
 
-/* Figure fills the capped right column */
-.project-page .arch-figure {
+/* Right column images: pinned to the right edge, with adjustable left edge */
+.project-page .project-content .arch-gallery {
+  max-width: none;
   width: 100%;
   margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* Intro row: keep intro readable, aligned with image column */
-.project-page .arch-intro .about-text {
-  max-width: 420px;
-  margin: 0;
-  padding: 0;
+/* Each image row */
+.project-page .project-content .arch-card {
+  display: block;
+}
+
+/* Cap width but keep right edge aligned */
+.project-page .project-content .arch-figure {
+  width: min(var(--right-col-max), 100%);
+  margin-left: auto; /* pushes figure to the right */
+  margin-right: 0;
 }
 
 /* ===============================
@@ -307,7 +295,6 @@ h2 {
   transform: translateY(0);
 }
 
-/* Reduced motion: show immediately */
 @media (prefers-reduced-motion: reduce) {
   .reveal-on .arch-card {
     opacity: 1;
@@ -331,6 +318,32 @@ h2 {
    MOBILE
    =============================== */
 
+@media (max-width: 860px) {
+  /* Stack columns on smaller screens */
+  .project-page .project-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .project-page .project-sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .project-page .project-sidebar-inner {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .project-page .project-content .arch-figure {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 640px) {
   body {
     padding: 32px 18px;
@@ -348,37 +361,7 @@ h2 {
     white-space: normal;
   }
 
-  .arch-gallery {
-    max-width: var(--max-width);
-    gap: 28px;
-  }
-
-  .arch-figure {
-    width: 100%;
-  }
-
   .site-footer {
     gap: 20px;
-  }
-
-  /* Project page: comfortable padding + stacked layout */
-  .project-page .arch-gallery {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .project-page .arch-card {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  /* Remove right-pin width cap on mobile so it fills naturally */
-  .project-page .arch-card > :nth-child(2) {
-    justify-self: stretch;
-    width: 100%;
-  }
-
-  .project-page .arch-intro .about-text {
-    max-width: 100%;
   }
 }
