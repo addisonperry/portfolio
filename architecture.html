@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <!-- NO animation on this page -->
   <body>
     <header class="nocopy site-header">
       <h1>
@@ -25,7 +24,6 @@
 
     <main>
       <section class="arch-gallery" aria-label="Architectural projects">
-        <!-- Card 1 -->
         <article class="arch-card">
           <a class="arch-link" href="projects/library-resource-center.html">
             <figure class="arch-figure">
@@ -44,7 +42,6 @@
           </a>
         </article>
 
-        <!-- Card 2 -->
         <article class="arch-card">
           <a class="arch-link" href="projects/the-architectural-detail.html">
             <figure class="arch-figure">
@@ -76,38 +73,12 @@
         Instagram
       </a>
       <a href="mailto:studio@addisonoperry.com">Email</a>
-
-      <!-- Optional: only if you want a year -->
       <span class="site-footer-year">© <span id="year"></span></span>
     </footer>
 
     <script>
-      // Safe year setter (won't error if #year is missing)
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // Scroll reveal (ONLY runs on pages with <body class="reveal-on">)
-      if (document.body.classList.contains("reveal-on")) {
-        const cards = document.querySelectorAll(".arch-card");
-
-        if (!("IntersectionObserver" in window)) {
-          cards.forEach((c) => c.classList.add("is-visible"));
-        } else {
-          const io = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("is-visible");
-                  io.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
-          );
-
-          cards.forEach((c) => io.observe(c));
-        }
-      }
     </script>
   </body>
 </html>
