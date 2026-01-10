@@ -1,28 +1,113 @@
-<script>
-  // Safe year setter (won't error if #year doesn't exist)
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Architecture — Addison Perry</title>
 
-  // Only run reveal where it's enabled
-  if (document.body.classList.contains("reveal-on")) {
-    const cards = document.querySelectorAll(".arch-card");
+    <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    if (!("IntersectionObserver" in window)) {
-      cards.forEach((c) => c.classList.add("is-visible"));
-    } else {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              io.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
-      );
+  <!-- NO animation on this page -->
+  <body>
+    <header class="nocopy site-header">
+      <h1>
+        <a href="index.html">ADDISON PERRY</a>
+      </h1>
 
-      cards.forEach((c) => io.observe(c));
-    }
-  }
-</script>
+      <nav>
+        <a href="objects.html">OBJECTS</a>
+        <a href="architecture.html" aria-current="page">ARCHITECTURE</a>
+        <a href="about.html">ABOUT</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="arch-gallery" aria-label="Architectural projects">
+        <!-- Card 1 -->
+        <article class="arch-card">
+          <a class="arch-link" href="projects/library-resource-center.html">
+            <figure class="arch-figure">
+              <div class="arch-media">
+                <img
+                  src="images/architecture/IMG_1610.jpg"
+                  alt="Library Resource Center — exterior view"
+                  loading="lazy"
+                />
+              </div>
+
+              <figcaption class="arch-meta">
+                <h3>Crenshaw Meche Neighborhood, 2023</h3>
+              </figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="arch-card">
+          <a class="arch-link" href="projects/the-architectural-detail.html">
+            <figure class="arch-figure">
+              <div class="arch-media">
+                <img
+                  src="images/architecture/IMG_1618.jpg"
+                  alt="The Architectural Detail — exterior view"
+                  loading="lazy"
+                />
+              </div>
+
+              <figcaption class="arch-meta">
+                <h3>The Architectural Detail, 2024</h3>
+              </figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <!-- Add more cards -->
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a
+        href="https://instagram.com/addisonoperry"
+        target="_blank"
+        rel="noopener"
+      >
+        Instagram
+      </a>
+      <a href="mailto:studio@addisonoperry.com">Email</a>
+
+      <!-- Optional: only if you want a year -->
+      <span class="site-footer-year">© <span id="year"></span></span>
+    </footer>
+
+    <script>
+      // Safe year setter (won't error if #year is missing)
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Scroll reveal (ONLY runs on pages with <body class="reveal-on">)
+      if (document.body.classList.contains("reveal-on")) {
+        const cards = document.querySelectorAll(".arch-card");
+
+        if (!("IntersectionObserver" in window)) {
+          cards.forEach((c) => c.classList.add("is-visible"));
+        } else {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+          );
+
+          cards.forEach((c) => io.observe(c));
+        }
+      }
+    </script>
+  </body>
+</html>
