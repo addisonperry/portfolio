@@ -251,7 +251,7 @@ section {
 .caption-item {
   display: grid;
   grid-template-columns: 34px 1fr; /* number col | text col */
-  column-gap: 14px;
+  column-gap: 8px;
   align-items: baseline;
   padding: 10px 0;
 }
