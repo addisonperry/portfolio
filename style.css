@@ -1,3 +1,4 @@
+/* style.css (FULL UPDATED) */
 :root {
   --bg: #ffffff;
   --text: #111111;
@@ -52,7 +53,6 @@ main,
   justify-content: space-between;
   gap: 24px;
 
-  /* Keep header inside page width */
   padding: 0 0 24px 0;
 }
 
@@ -137,40 +137,11 @@ h2 {
 }
 
 /* ===============================
-   PROJECT PAGES
-   =============================== */
-
-.project-page .arch-gallery {
-  max-width: 1200px;
-}
-
-.project-page .arch-figure {
-  width: 100%;
-}
-
-/* Align text with wide gallery on project pages */
-.project-page .about-text {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: left;
-}
-
-.project-page .about-text p {
-  max-width: 420px;
-}
-
-.project-page .arch-gallery {
-  gap: 20px;
-}
-
-/* ===============================
-   ARCHITECTURE GALLERY
+   ARCHITECTURE GALLERY (index + general)
    =============================== */
 
 .arch-gallery {
-  max-width: 1100px; /* wider than text pages */
+  max-width: 1100px;
   margin: 0 auto;
   padding: 8px 0 56px;
 
@@ -189,7 +160,7 @@ h2 {
   text-decoration: none;
 }
 
-/* Architecture index cards centered */
+/* Default figure width (index page) */
 .arch-figure {
   width: 66.666%;
   margin: 0 auto;
@@ -206,14 +177,13 @@ h2 {
   transition: filter 300ms ease;
 }
 
-/* Blur hover (NOT on project pages) */
 @media (hover: hover) and (pointer: fine) {
   body:not(.project-page) .arch-figure:hover .arch-media img {
     filter: blur(14px);
   }
 }
 
-/* Caption */
+/* Caption (index page) */
 .arch-meta {
   padding-top: 10px;
 }
@@ -227,10 +197,67 @@ h2 {
 }
 
 /* ===============================
+   PROJECT PAGES
+   =============================== */
+
+/* Wider gallery on project pages */
+.project-page .arch-gallery {
+  max-width: 1200px;
+  gap: 20px;
+}
+
+/* Align intro text with wide gallery */
+.project-page .about-text {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: left;
+}
+
+.project-page .about-text p {
+  max-width: 420px;
+}
+
+/* Text left, image right (project pages) */
+.project-page .arch-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* text | image */
+  gap: 40px;
+  align-items: start;
+}
+
+/* Text column */
+.project-page .arch-text {
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.project-page .arch-text h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.project-page .arch-text p {
+  margin: 0;
+}
+
+/* Figure should fill its column on project pages */
+.project-page .arch-figure {
+  width: 100%;
+  margin: 0;
+}
+
+/* ===============================
    Scroll reveal (OPT-IN via .reveal-on)
    =============================== */
 
-/* Default: visible everywhere (prevents blank page) */
+/* Default: visible everywhere */
 .arch-card {
   opacity: 1;
   transform: none;
@@ -317,7 +344,6 @@ h2 {
     white-space: normal;
   }
 
-  /* Gallery mobile */
   .arch-gallery {
     max-width: var(--max-width);
     gap: 28px;
@@ -329,5 +355,11 @@ h2 {
 
   .site-footer {
     gap: 20px;
+  }
+
+  /* Project page: stack text above image */
+  .project-page .arch-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
