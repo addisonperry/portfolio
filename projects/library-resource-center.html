@@ -1,4 +1,4 @@
-<!-- projects/library-resource-center.html (FULL UPDATED — intro aligned with image left edge) -->
+<!-- projects/library-resource-center.html (FULL UPDATED — catalog-style numbered scales + aligned right column) -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Library Resource Center — Addison Perry</title>
 
-    <link rel="stylesheet" href="../style.css?v=9" />
+    <link rel="stylesheet" href="../style.css?v=10" />
     <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css" />
   </head>
 
@@ -33,36 +33,55 @@
               Add your fixed sidebar text here. This stays fixed while the image
               sequence scrolls on the right.
             </p>
-            <p>
-              Use this for a statement, program, credits, or a short reading
-              guide.
-            </p>
-            <p>
-              Site plan<br>
-              1" = 50'-0"
-            </p>
-            <p>
-              Ground floor plan<br>
-              1/8" = 1'-0"
-            </p>
-            <p>
-              Typical floor plan<br>
-              1/8" = 1'-0"
-            </p>
-            <p>
-              Partial plan<br>
-              1/4" = 1'-0"
-            </p>
-            <p>
-              Exterior elevation<br>
-              1/2" = 1'-0"
-            </p>
+
+            <!-- Catalog-style numbered list (matches your reference image) -->
+            <ol class="caption-list" aria-label="Drawing index and scales">
+              <li class="caption-item">
+                <span class="caption-num">01</span>
+                <span class="caption-body">
+                  <span class="caption-title">Site plan</span>
+                  <span class="caption-scale">1&quot; = 50&#39;-0&quot;</span>
+                </span>
+              </li>
+
+              <li class="caption-item">
+                <span class="caption-num">02</span>
+                <span class="caption-body">
+                  <span class="caption-title">Ground floor plan</span>
+                  <span class="caption-scale">1/8&quot; = 1&#39;-0&quot;</span>
+                </span>
+              </li>
+
+              <li class="caption-item">
+                <span class="caption-num">03</span>
+                <span class="caption-body">
+                  <span class="caption-title">Typical floor plan</span>
+                  <span class="caption-scale">1/8&quot; = 1&#39;-0&quot;</span>
+                </span>
+              </li>
+
+              <li class="caption-item">
+                <span class="caption-num">04</span>
+                <span class="caption-body">
+                  <span class="caption-title">Partial plan</span>
+                  <span class="caption-scale">1/4&quot; = 1&#39;-0&quot;</span>
+                </span>
+              </li>
+
+              <li class="caption-item">
+                <span class="caption-num">05</span>
+                <span class="caption-body">
+                  <span class="caption-title">Exterior elevation</span>
+                  <span class="caption-scale">1/2&quot; = 1&#39;-0&quot;</span>
+                </span>
+              </li>
+            </ol>
           </div>
         </aside>
 
         <!-- SCROLLING RIGHT COLUMN -->
         <section class="project-content">
-          <!-- Intro: wrapped in right-cap so it aligns with images -->
+          <!-- Intro aligned with image left edge via right-cap -->
           <div class="right-cap">
             <section class="about-text">
               <p>LIBRARY RESOURCE CENTER</p>
@@ -81,7 +100,7 @@
             </section>
           </div>
 
-          <!-- Image sequence: each image inside right-cap -->
+          <!-- Image sequence -->
           <section class="arch-gallery" aria-label="Project image sequence">
             <article class="arch-card">
               <div class="right-cap">
@@ -97,7 +116,10 @@
               <div class="right-cap">
                 <figure class="arch-figure">
                   <div class="arch-media">
-                    <img src="../images/architecture/Binder1_Page_16.jpg" alt="" />
+                    <img
+                      src="../images/architecture/Binder1_Page_16.jpg"
+                      alt=""
+                    />
                   </div>
                 </figure>
               </div>
@@ -107,7 +129,10 @@
               <div class="right-cap">
                 <figure class="arch-figure">
                   <div class="arch-media">
-                    <img src="../images/architecture/Binder1_Page_06.jpg" alt="" />
+                    <img
+                      src="../images/architecture/Binder1_Page_06.jpg"
+                      alt=""
+                    />
                   </div>
                 </figure>
               </div>
@@ -137,7 +162,10 @@
               <div class="right-cap">
                 <figure class="arch-figure">
                   <div class="arch-media">
-                    <img src="../images/architecture/Binder1_Page_20.jpg" alt="" />
+                    <img
+                      src="../images/architecture/Binder1_Page_20.jpg"
+                      alt=""
+                    />
                   </div>
                 </figure>
               </div>
@@ -147,7 +175,10 @@
               <div class="right-cap">
                 <figure class="arch-figure">
                   <div class="arch-media">
-                    <img src="../images/architecture/Binder1_Page_18.jpg" alt="" />
+                    <img
+                      src="../images/architecture/Binder1_Page_18.jpg"
+                      alt=""
+                    />
                   </div>
                 </figure>
               </div>
@@ -157,7 +188,10 @@
               <div class="right-cap">
                 <figure class="arch-figure">
                   <div class="arch-media">
-                    <img src="../images/architecture/Binder1_Page_19.jpg" alt="" />
+                    <img
+                      src="../images/architecture/Binder1_Page_19.jpg"
+                      alt=""
+                    />
                   </div>
                 </figure>
               </div>
@@ -167,7 +201,10 @@
               <div class="right-cap">
                 <figure class="arch-figure">
                   <div class="arch-media">
-                    <img src="../images/architecture/Binder1_Page_12.jpg" alt="" />
+                    <img
+                      src="../images/architecture/Binder1_Page_12.jpg"
+                      alt=""
+                    />
                   </div>
                 </figure>
               </div>
@@ -193,6 +230,7 @@
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+      // Scroll reveal (OPT-IN via .reveal-on on <body>)
       (function () {
         if (!document.body.classList.contains("reveal-on")) return;
 
