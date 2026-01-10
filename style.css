@@ -13,7 +13,7 @@
   --sticky-top: 88px;
 
   /* controls the LEFT edge of the right-column images while keeping right edge pinned */
-  --right-col-max: 880px;
+  --right-col-max: 800px;
 }
 
 * {
