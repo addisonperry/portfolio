@@ -52,8 +52,7 @@ main,
   justify-content: space-between;
   gap: 24px;
 
-  /* IMPORTANT: keep header inside the page width.
-     Your old "padding: 0 260px ..." could push content off-screen. */
+  /* Keep header inside page width */
   padding: 0 0 24px 0;
 }
 
@@ -122,7 +121,7 @@ h2 {
 }
 
 /* ===============================
-   ABOUT TEXT (if used on about page)
+   ABOUT TEXT
    =============================== */
 
 .about-text {
@@ -138,7 +137,7 @@ h2 {
 }
 
 /* ===============================
-   PROJECT PAGES (if you use .project-page on body)
+   PROJECT PAGES
    =============================== */
 
 .project-page .arch-gallery {
@@ -149,6 +148,7 @@ h2 {
   width: 100%;
 }
 
+/* Align text with wide gallery on project pages */
 .project-page .about-text {
   max-width: 1100px;
   margin: 0 auto;
@@ -170,7 +170,7 @@ h2 {
    =============================== */
 
 .arch-gallery {
-  max-width: 1100px;
+  max-width: 1100px; /* wider than text pages */
   margin: 0 auto;
   padding: 8px 0 56px;
 
@@ -189,6 +189,7 @@ h2 {
   text-decoration: none;
 }
 
+/* Architecture index cards centered */
 .arch-figure {
   width: 66.666%;
   margin: 0 auto;
@@ -205,12 +206,14 @@ h2 {
   transition: filter 300ms ease;
 }
 
+/* Blur hover (NOT on project pages) */
 @media (hover: hover) and (pointer: fine) {
   body:not(.project-page) .arch-figure:hover .arch-media img {
     filter: blur(14px);
   }
 }
 
+/* Caption */
 .arch-meta {
   padding-top: 10px;
 }
@@ -224,8 +227,7 @@ h2 {
 }
 
 /* ===============================
-   SCROLL REVEAL (OPT-IN)
-   Add class="reveal-on" to <body> on pages you want animated
+   Scroll reveal (OPT-IN via .reveal-on)
    =============================== */
 
 /* Default: visible everywhere (prevents blank page) */
@@ -234,7 +236,7 @@ h2 {
   transform: none;
 }
 
-/* Only animate on pages that opt-in */
+/* Only animate on pages that opt in */
 .reveal-on .arch-card {
   opacity: 0;
   transform: translateY(4px);
@@ -247,7 +249,7 @@ h2 {
   transform: translateY(0);
 }
 
-/* Reduced motion */
+/* Reduced motion: show immediately */
 @media (prefers-reduced-motion: reduce) {
   .reveal-on .arch-card {
     opacity: 1;
@@ -315,6 +317,7 @@ h2 {
     white-space: normal;
   }
 
+  /* Gallery mobile */
   .arch-gallery {
     max-width: var(--max-width);
     gap: 28px;
