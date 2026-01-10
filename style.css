@@ -121,7 +121,7 @@ h2 {
 }
 
 /* ===============================
-   ABOUT TEXT
+   ABOUT TEXT (general)
    =============================== */
 
 .about-text {
@@ -206,28 +206,15 @@ h2 {
   gap: 20px;
 }
 
-/* Align intro text with wide gallery */
-.project-page .about-text {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: left;
-}
-
-.project-page .about-text p {
-  max-width: 420px;
-}
-
-/* Text left, image right (project pages) */
+/* Two-column rows on project pages */
 .project-page .arch-card {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* text | image */
+  grid-template-columns: 1fr 2fr; /* left notes | right content */
   gap: 40px;
   align-items: start;
 }
 
-/* Text column */
+/* Left text column (notes) */
 .project-page .arch-text {
   font-size: 0.7rem;
   line-height: 1.6;
@@ -247,10 +234,22 @@ h2 {
   margin: 0;
 }
 
-/* Figure should fill its column on project pages */
+/* Right column wrapper (used for intro row) */
+.project-page .arch-right {
+  width: 100%;
+}
+
+/* Make figure fill right column on project pages */
 .project-page .arch-figure {
   width: 100%;
   margin: 0;
+}
+
+/* Intro row: keep intro aligned with image column */
+.project-page .arch-intro .about-text {
+  max-width: 420px;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===============================
@@ -357,9 +356,14 @@ h2 {
     gap: 20px;
   }
 
-  /* Project page: stack text above image */
+  /* Project page: stack notes above content */
   .project-page .arch-card {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  /* Intro row: keep intro comfortable */
+  .project-page .arch-intro .about-text {
+    max-width: 100%;
   }
 }
