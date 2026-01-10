@@ -1,4 +1,4 @@
-/* style.css (FULL UPDATED — wide project pages + near full-bleed right column) */
+/* style.css (FULL UPDATED — project images pinned right with adjustable left edge) */
 :root {
   --bg: #ffffff;
   --text: #111111;
@@ -224,7 +224,7 @@ h2 {
 }
 
 /* ===============================
-   PROJECT PAGES (WIDE)
+   PROJECT PAGES (WIDE + RIGHT-PINNED IMAGES)
    =============================== */
 
 /* Project gallery: near full-bleed with small side padding */
@@ -232,19 +232,19 @@ h2 {
   max-width: none;
   width: 100%;
   margin: 0;
-  padding: 8px 24px 56px; /* adjust side padding here */
+  padding: 8px 24px 56px; /* page-side padding */
   gap: 20px;
 }
 
-/* Two-column rows: stable notes column + flexible image column */
+/* Two-column rows: stable notes column + flexible right column */
 .project-page .arch-card {
   display: grid;
-  grid-template-columns: 360px 1fr; /* left notes | right content */
+  grid-template-columns: 360px 1fr; /* left notes | right column */
   gap: 40px;
   align-items: start;
 }
 
-/* Left notes column */
+/* LEFT: notes column */
 .project-page .arch-text {
   font-size: 0.7rem;
   line-height: 1.6;
@@ -264,18 +264,20 @@ h2 {
   margin: 0;
 }
 
-/* Right column wrapper (intro row) */
-.project-page .arch-right {
-  width: 100%;
+/* RIGHT: pin to the right edge and CAP WIDTH
+   Change 980px to control the left edge position */
+.project-page .arch-card > :nth-child(2) {
+  justify-self: end;           /* pins to right edge */
+  width: min(980px, 100%);     /* <-- adjust this number */
 }
 
-/* Figure fills the right column on project pages */
+/* Figure fills the capped right column */
 .project-page .arch-figure {
   width: 100%;
   margin: 0;
 }
 
-/* Intro row: keep intro readable inside wide right column */
+/* Intro row: keep intro readable, aligned with image column */
 .project-page .arch-intro .about-text {
   max-width: 420px;
   margin: 0;
@@ -368,6 +370,12 @@ h2 {
   .project-page .arch-card {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  /* Remove right-pin width cap on mobile so it fills naturally */
+  .project-page .arch-card > :nth-child(2) {
+    justify-self: stretch;
+    width: 100%;
   }
 
   .project-page .arch-intro .about-text {
