@@ -198,7 +198,11 @@ section {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 8px 24px 56px;
+
+  /* asymmetric padding:
+     left = breathing room for sidebar
+     right = almost flush */
+  padding: 8px 6px 56px 24px;
 
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
