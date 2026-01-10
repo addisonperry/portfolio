@@ -1,19 +1,17 @@
-/* style.css (FULL UPDATED — true fixed left sidebar + scrolling right column) */
+/* style.css (FULL UPDATED — right-cap aligns intro + images) */
 :root {
   --bg: #ffffff;
   --text: #111111;
   --muted: #666666;
   --max-width: 720px;
 
-  /* layout tuning */
   --sidebar-width: 360px;
   --gap: 40px;
 
-  /* sticky offset (accounts for top padding + header height) */
   --sticky-top: 88px;
 
-  /* controls the LEFT edge of the right-column images while keeping right edge pinned */
-  --right-col-max: 800px;
+  /* controls image width while keeping right edge pinned */
+  --right-col-max: 800px; /* adjust freely */
 }
 
 * {
@@ -196,7 +194,6 @@ section {
    PROJECT PAGES — FIXED LEFT SIDEBAR
    =============================== */
 
-/* Full-bleed project layout with small page padding */
 .project-page .project-layout {
   width: 100%;
   max-width: none;
@@ -209,13 +206,11 @@ section {
   align-items: start;
 }
 
-/* Left column: fixed (sticky) regardless of rows */
+/* Left column sticky */
 .project-page .project-sidebar {
   position: sticky;
   top: var(--sticky-top);
   align-self: start;
-
-  /* keeps the sidebar from getting too wide */
   width: var(--sidebar-width);
 
   font-size: 0.7rem;
@@ -223,7 +218,6 @@ section {
   line-height: 1.6;
 }
 
-/* Optional: if your sidebar content gets long, it can scroll internally */
 .project-page .project-sidebar-inner {
   max-height: calc(100vh - var(--sticky-top) - 24px);
   overflow: auto;
@@ -243,12 +237,18 @@ section {
   margin: 0 0 14px 0;
 }
 
-/* Right column: scrolls naturally with the page */
+/* Right column */
 .project-page .project-content {
   width: 100%;
 }
 
-/* Right column images: pinned to the right edge, with adjustable left edge */
+/* THIS is the shared cap that aligns intro + images */
+.project-page .right-cap {
+  width: min(var(--right-col-max), 100%);
+  margin-left: auto; /* pins right edge */
+}
+
+/* Right column gallery */
 .project-page .project-content .arch-gallery {
   max-width: none;
   width: 100%;
@@ -260,29 +260,25 @@ section {
   gap: 20px;
 }
 
-/* Each image row */
+/* Image rows */
 .project-page .project-content .arch-card {
   display: block;
 }
 
-/* Cap width but keep right edge aligned */
 .project-page .project-content .arch-figure {
-  width: min(var(--right-col-max), 100%);
-  margin-left: auto; /* pushes figure to the right */
-  margin-right: 0;
+  width: 100%;
+  margin: 0;
 }
 
 /* ===============================
    Scroll reveal (OPT-IN via .reveal-on)
    =============================== */
 
-/* Default: visible everywhere */
 .arch-card {
   opacity: 1;
   transform: none;
 }
 
-/* Only animate on pages that opt in */
 .reveal-on .arch-card {
   opacity: 0;
   transform: translateY(4px);
@@ -319,7 +315,6 @@ section {
    =============================== */
 
 @media (max-width: 860px) {
-  /* Stack columns on smaller screens */
   .project-page .project-layout {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -338,7 +333,8 @@ section {
     padding-right: 0;
   }
 
-  .project-page .project-content .arch-figure {
+  /* let right-cap fill on smaller screens */
+  .project-page .right-cap {
     width: 100%;
     margin-left: 0;
   }
