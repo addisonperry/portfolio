@@ -1,4 +1,4 @@
-/* style.css (FULL UPDATED) */
+/* style.css (FULL UPDATED — wide project pages + near full-bleed right column) */
 :root {
   --bg: #ffffff;
   --text: #111111;
@@ -31,12 +31,47 @@ body {
   line-height: 1.6;
 }
 
-/* Page width */
-main,
+/* ===============================
+   PAGE LAYOUT
+   =============================== */
+
+/* MAIN: full width so project galleries can expand */
+main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  flex: 1; /* pushes footer down */
+  margin-top: 32px;
+}
+
+/* Footer stays restrained */
 .site-footer {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
+  padding-top: 32px;
+
+  display: flex;
+  gap: 32px;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  font-size: 0.75rem;
+}
+
+.site-footer a {
+  text-decoration: none;
+  color: #888888;
+  letter-spacing: 0.06em;
+}
+
+.site-footer a:hover {
+  color: var(--text);
+}
+
+.site-footer-year {
+  color: #888888;
+  letter-spacing: 0.06em;
 }
 
 /* ===============================
@@ -96,13 +131,8 @@ nav a[aria-current="page"] {
 }
 
 /* ===============================
-   CONTENT
+   CONTENT BASE
    =============================== */
-
-main {
-  flex: 1; /* pushes footer down */
-  margin-top: 32px;
-}
 
 section {
   margin-bottom: 48px;
@@ -120,10 +150,7 @@ h2 {
   font-style: italic;
 }
 
-/* ===============================
-   ABOUT TEXT (general)
-   =============================== */
-
+/* About text (general) */
 .about-text {
   max-width: 420px;
   margin: 0 auto;
@@ -197,24 +224,27 @@ h2 {
 }
 
 /* ===============================
-   PROJECT PAGES
+   PROJECT PAGES (WIDE)
    =============================== */
 
-/* Wider gallery on project pages */
+/* Project gallery: near full-bleed with small side padding */
 .project-page .arch-gallery {
-  max-width: 1200px;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 8px 24px 56px; /* adjust side padding here */
   gap: 20px;
 }
 
-/* Two-column rows on project pages */
+/* Two-column rows: stable notes column + flexible image column */
 .project-page .arch-card {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* left notes | right content */
+  grid-template-columns: 360px 1fr; /* left notes | right content */
   gap: 40px;
   align-items: start;
 }
 
-/* Left text column (notes) */
+/* Left notes column */
 .project-page .arch-text {
   font-size: 0.7rem;
   line-height: 1.6;
@@ -234,18 +264,18 @@ h2 {
   margin: 0;
 }
 
-/* Right column wrapper (used for intro row) */
+/* Right column wrapper (intro row) */
 .project-page .arch-right {
   width: 100%;
 }
 
-/* Make figure fill right column on project pages */
+/* Figure fills the right column on project pages */
 .project-page .arch-figure {
   width: 100%;
   margin: 0;
 }
 
-/* Intro row: keep intro aligned with image column */
+/* Intro row: keep intro readable inside wide right column */
 .project-page .arch-intro .about-text {
   max-width: 420px;
   margin: 0;
@@ -285,36 +315,9 @@ h2 {
 }
 
 /* ===============================
-   FOOTER
+   UTILITIES
    =============================== */
 
-.site-footer {
-  padding-top: 32px;
-
-  display: flex;
-  gap: 32px;
-  align-items: baseline;
-  flex-wrap: wrap;
-
-  font-size: 0.75rem;
-}
-
-.site-footer a {
-  text-decoration: none;
-  color: #888888;
-  letter-spacing: 0.06em;
-}
-
-.site-footer a:hover {
-  color: var(--text);
-}
-
-.site-footer-year {
-  color: #888888;
-  letter-spacing: 0.06em;
-}
-
-/* Prevent text selection */
 .nocopy {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -356,13 +359,17 @@ h2 {
     gap: 20px;
   }
 
-  /* Project page: stack notes above content */
+  /* Project page: comfortable padding + stacked layout */
+  .project-page .arch-gallery {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
   .project-page .arch-card {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* Intro row: keep intro comfortable */
   .project-page .arch-intro .about-text {
     max-width: 100%;
   }
