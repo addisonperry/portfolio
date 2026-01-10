@@ -1,4 +1,4 @@
-<!-- projects/library-resource-center.html (FULL UPDATED) -->
+<!-- projects/library-resource-center.html (FULL UPDATED — fixed left sidebar + scrolling right column) -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Library Resource Center — Addison Perry</title>
 
-    <link rel="stylesheet" href="../style.css?v=7" />
+    <link rel="stylesheet" href="../style.css?v=8" />
     <link rel="stylesheet" href="https://use.typekit.net/hkc7qbm.css" />
   </head>
 
@@ -24,174 +24,117 @@
     </header>
 
     <main>
-      <section class="arch-gallery" aria-label="Project image sequence">
-        <!-- INTRO ROW: left column empty, intro sits in right column -->
-        <article class="arch-card arch-intro">
-          <div class="arch-text"></div>
-
-          <div class="arch-right">
-            <section class="about-text">
-              <p>LIBRARY RESOURCE CENTER</p>
-              <p>
-                GROUP EXHIBITION<br />
-                BY NACHO POLO &amp; ROBERT ONUSKA<br />
-                APRIL 21ST – APRIL 26TH, 2026<br />
-                SANTA ANA<br />
-                CALIFORNIA
-              </p>
-
-              <p>
-                This page is where you slow things down and let the project
-                speak beyond the image.
-              </p>
-            </section>
-          </div>
-        </article>
-
-        <!-- IMAGE ROW 1 -->
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Exterior view</h4>
+      <div class="project-layout">
+        <!-- FIXED LEFT COLUMN -->
+        <aside class="project-sidebar">
+          <div class="project-sidebar-inner">
+            <h4>Notes</h4>
             <p>
-              Street-facing elevation emphasizing transparency and public
-              threshold.
+              Add your fixed sidebar text here. This column stays in place while
+              the image sequence scrolls on the right.
+            </p>
+            <p>
+              You can use this for a single project statement, materials,
+              program, credits, or a short reading guide.
             </p>
           </div>
+        </aside>
 
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/IMG_1610.jpg" alt="" />
-            </div>
-          </figure>
-        </article>
-
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Process</h4>
+        <!-- SCROLLING RIGHT COLUMN -->
+        <section class="project-content">
+          <!-- Intro text (RIGHT column, at top) -->
+          <section class="about-text">
+            <p>LIBRARY RESOURCE CENTER</p>
             <p>
-              Working material and layout tests. The sequence reads as a slow
-              set of decisions.
+              GROUP EXHIBITION<br />
+              BY NACHO POLO &amp; ROBERT ONUSKA<br />
+              APRIL 21ST – APRIL 26TH, 2026<br />
+              SANTA ANA<br />
+              CALIFORNIA
             </p>
-          </div>
 
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_16.jpg" alt="" />
-            </div>
-          </figure>
-        </article>
-
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Diagram</h4>
             <p>
-              Notes on circulation and thresholds—public and private held in
-              proximity.
+              This page is where you slow things down and let the project speak
+              beyond the image.
             </p>
-          </div>
+          </section>
 
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_06.jpg" alt="" />
-            </div>
-          </figure>
-        </article>
+          <!-- Image sequence (RIGHT column) -->
+          <section class="arch-gallery" aria-label="Project image sequence">
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/IMG_1610.jpg" alt="" />
+                </div>
+              </figure>
+            </article>
 
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Study</h4>
-            <p>
-              Massing and proportion tests to keep the composition quiet and
-              legible.
-            </p>
-          </div>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Binder1_Page_16.jpg" alt="" />
+                </div>
+              </figure>
+            </article>
 
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Test2.png" alt="" />
-            </div>
-          </figure>
-        </article>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Binder1_Page_06.jpg" alt="" />
+                </div>
+              </figure>
+            </article>
 
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Study</h4>
-            <p>
-              Iteration focused on light and edge conditions—where the project
-              softens or sharpens.
-            </p>
-          </div>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Test2.png" alt="" />
+                </div>
+              </figure>
+            </article>
 
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Test.png" alt="" />
-            </div>
-          </figure>
-        </article>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Test.png" alt="" />
+                </div>
+              </figure>
+            </article>
 
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Documentation</h4>
-            <p>
-              Drawings and references collected as an archive of decisions and
-              constraints.
-            </p>
-          </div>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Binder1_Page_20.jpg" alt="" />
+                </div>
+              </figure>
+            </article>
 
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_20.jpg" alt="" />
-            </div>
-          </figure>
-        </article>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Binder1_Page_18.jpg" alt="" />
+                </div>
+              </figure>
+            </article>
 
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Documentation</h4>
-            <p>
-              Layered information—details that support the overall reading
-              without becoming noise.
-            </p>
-          </div>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Binder1_Page_19.jpg" alt="" />
+                </div>
+              </figure>
+            </article>
 
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_18.jpg" alt="" />
-            </div>
-          </figure>
-        </article>
-
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Documentation</h4>
-            <p>
-              Sequence continues with minor shifts: alignment, spacing, and how
-              information lands on the page.
-            </p>
-          </div>
-
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_19.jpg" alt="" />
-            </div>
-          </figure>
-        </article>
-
-        <article class="arch-card">
-          <div class="arch-text">
-            <h4>Documentation</h4>
-            <p>
-              Closing frame—final references and notes that tie the set together.
-            </p>
-          </div>
-
-          <figure class="arch-figure">
-            <div class="arch-media">
-              <img src="../images/architecture/Binder1_Page_12.jpg" alt="" />
-            </div>
-          </figure>
-        </article>
-      </section>
+            <article class="arch-card">
+              <figure class="arch-figure">
+                <div class="arch-media">
+                  <img src="../images/architecture/Binder1_Page_12.jpg" alt="" />
+                </div>
+              </figure>
+            </article>
+          </section>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">
@@ -206,13 +149,12 @@
       <span class="site-footer-year">© <span id="year"></span></span>
     </footer>
 
-    <!-- Scroll reveal -->
     <script>
       // Safe year setter
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Fast + subtle scroll reveal (OPT-IN via .reveal-on on <body>)
+      // Scroll reveal (OPT-IN via .reveal-on on <body>)
       (function () {
         if (!document.body.classList.contains("reveal-on")) return;
 
@@ -237,7 +179,7 @@
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
               entry.target.classList.add("is-visible");
-              obs.unobserve(entry.target); // animate once
+              obs.unobserve(entry.target);
             });
           },
           { threshold: 0, rootMargin: "0px 0px -18% 0px" }
