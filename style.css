@@ -278,15 +278,6 @@ section {
   font-weight: 400;
 }
 
-.caption-scale {
-  color: var(--muted);
-}
-
-/* Optional: subtle separators like printed lists */
-.caption-item + .caption-item {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-}
-
 /* Right column */
 .project-page .project-content {
   width: 100%;
